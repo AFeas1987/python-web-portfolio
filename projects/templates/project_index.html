@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<!-- <h1>Projects</h1> -->
+
+<script src="{% static 'projects/vendor/jquery/jquery.min.js' %}"></script>
+
+<div class="row">
+{% for project in projects %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{{ project.image.url }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text">{{ project.description }}</p>
+                <button type="button" class="btn btn-cta-secondary detail-btn" 
+                        data-toggle="modal" data-id="{% url 'project_detail' project.pk %}">More Info</button>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".detail-btn").each(function () {
+            $(this).modalForm({formURL: $(this).data('id')});
+        });
+    });
+</script>
+
+{% endblock %}

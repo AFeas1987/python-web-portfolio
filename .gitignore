@@ -1,0 +1,7 @@
+projects/media/
+db.sqlite3
+projects/migrations/
+venv/
+*/__pycache__/
+datadump.json
+staticfiles/
