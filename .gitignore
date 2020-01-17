@@ -5,3 +5,4 @@ venv/
 */__pycache__/
 datadump.json
 staticfiles/
+.env
