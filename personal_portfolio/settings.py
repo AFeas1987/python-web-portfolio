@@ -80,7 +80,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "personal_portfolio.wsgi.application"
 
-
+DATABASES = {}
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
