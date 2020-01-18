@@ -95,15 +95,15 @@ if os.path.isfile(dotenv_file):
         }
     }
 else:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql_psycopg2",
-            # "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-        }
-    }
+    # DATABASES = {
+        # "default": {
+            # "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        # }
+    # }
 
     # DATABASES = {}
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+    DATABASES['default'] = dj_database_url.parse('postgres://pleevhxrkmgnpt:37eaa61b1148fbe771c47272aeebb258a44f4ff8da6abe7bf0ea7cfab04870b2@ec2-23-21-13-88.compute-1.amazonaws.com:5432/d9j311hdotp6lu')
 
 
 
