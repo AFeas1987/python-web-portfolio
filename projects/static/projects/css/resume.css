@@ -56,14 +56,14 @@ p.lead {
 
 .social-icons a {
   display: inline-block;
-  height: 3.5rem;
-  width: 3.5rem;
+  height: 5.0rem;
+  width: 5.0rem;
   background-color: #495057;
   color: #fff !important;
   border-radius: 100%;
   text-align: center;
-  font-size: 1.5rem;
-  line-height: 3.5rem;
+  font-size: 3.14rem;
+  line-height: 3.14rem;
   margin-right: 0;
   padding-top: 1rem;
 }
@@ -133,7 +133,7 @@ p.lead {
 section.resume-section {
   padding-top: 5rem !important;
   padding-bottom: 5rem !important;
-  max-width: 75rem;
+  /* max-width: 75rem; */
 }
 
 section.resume-section .resume-item .resume-date {

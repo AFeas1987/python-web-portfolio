@@ -1,5 +1,7 @@
 {% load static %}
 
+<!-- <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no" /> -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <title>Alex Feaser's Web Resume</title>
 <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
@@ -9,8 +11,6 @@
 <!-- Custom styles for this template -->
 <link href="{% static 'projects/css/resume.css' %}" rel="stylesheet">
 
-
-<body id="page-top">
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
@@ -48,6 +48,9 @@
       </ul>
     </div>
   </nav>
+  
+<body id="page-top">
+
 
   <div class="container-fluid p-0">
 
@@ -57,15 +60,15 @@
           <span class="text-primary">Feaser</span>
         </h1>
         <div class="subheading mb-5">New York, NY · (516) 633-1214 ·
-          <a href="mailto:name@email.com">feaser.web.publishing@gmail.com</a>
+          <a href="mailto:feaser.dev@gmail.com">feaser.dev@gmail.com</a>
         </div>
-        <p class="lead mb-5">A promising, adaptive, and well-rounded software engineer eager for new oportunities and experiences within the industry.</p>
-        <div class="social-icons">
+        <p class="lead mb-5">A <i><b>promising</b></i>, <i><b>adaptive</b></i>, and <i><b>well-rounded</b></i> junior <i><b>software engineer</b></i> eager for new oportunities and experiences within the industry.</p>
+        <div class="social-icons text-center">
           <a href="https://www.linkedin.com/in/af1987/" target="_blank">
-            <i class="fab fa-linkedin-in"></i>
+            <i class="fab fab-about fa-linkedin-in"></i>
           </a>
           <a href="https://github.com/AFeas1987" target="_blank">
-            <i class="fab fa-github"></i>
+            <i class="fab fab-about fa-github"></i>
           </a>
          <!--  <a href="#">
             <i class="fab fa-twitter"></i>
@@ -318,17 +321,17 @@
             {% block page_content %}{% endblock %}
         </div>
     </section>
-    
-    <div class="modal fade" tabindex="-1" role="dialog" id="modal">
-      <div class="modal-dialog modal-lg"" role="document">
-        <div class="modal-content"></div>
-      </div>
-    </div>
 
   </div>
 
+    
+  <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+    <div class="modal-dialog modal-lg"" role="document">
+      <div class="modal-content"></div>
+    </div>
+  </div>
+    
 </body>
-
 <!-- Bootstrap core JavaScript -->
 <script src="{% static 'projects/vendor/jquery/jquery.min.js' %}"></script>
 <script src="{% static 'projects/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
