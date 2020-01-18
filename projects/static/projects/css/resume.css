@@ -10,6 +10,10 @@ body {
   color: #868e96;
 }
 
+.card-col {
+    max-width: 15rem
+}
+
 @media (min-width: 992px) {
   body {
     padding-top: 0;
