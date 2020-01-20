@@ -17,4 +17,4 @@ class ProjectAdmin(admin.ModelAdmin):
     ]
 
 admin.site.register(Project, ProjectAdmin)
-admin.site.site_url = "/projects/"
+admin.site.site_url = "/"
