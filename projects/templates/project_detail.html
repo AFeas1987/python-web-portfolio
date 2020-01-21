@@ -17,7 +17,7 @@
             <img src="{{ project.image }}" alt="" width="100%">
         </div>
         <br>
-        <div class="col-md-4 text-muted">
+        <div class="col-md-4 mt-4 text-muted">
             <h5 class="text-light">Created:</h5>
             <p>{{ project.display_created }}</p>
             <br>
@@ -34,12 +34,12 @@
 <div class="modal-footer w-100">
     <div class="d-flex justify-content-around">
         {% if project.github_link %}
-            <a class="button btn-primary btn-lg mx-1" href="{{ project.github_link }}" target="_blank">View on GitHub</a>
+            <a class="button btn btn-primary mx-1" href="{{ project.github_link }}" target="_blank">View on GitHub</a>
         {% endif %}
         {% if project.codepen_link %}
-            <a class="button btn-primary btn-lg mx-1" href="{{ project.codepen_link }}" target="_blank">Run with CodePen</a>
+            <a class="button btn btn-primary mx-1" href="{{ project.codepen_link }}" target="_blank">Run with CodePen</a>
         {% endif %}
-        <button type="button" class="btn btn-primary btn-lg mx-1" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary mx-1" data-dismiss="modal">Close</button>
     </div>
 </div>
 

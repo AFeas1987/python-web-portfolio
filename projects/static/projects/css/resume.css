@@ -8,10 +8,20 @@ body {
   font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   padding-top: 54px;
   color: #868e96;
+  text-shadow: 0.12rem 0.25rem 0.5rem rgba(0,0,0,0.24), 0.25rem 0.5rem 1.5rem rgba(0,0,0,0.12);
 }
 
 .card-col {
     max-width: 15rem;
+}
+
+.card {
+    box-shadow: 0 0.25rem 0.5rem 0 rgba(0,0,0,0.24), 0 0.5rem 1.5rem 0 rgba(0,0,0,0.12);
+}
+
+.card-img-top {
+    border-radius: 0.25rem;
+    /* box-shadow: 0 0.25rem 0.5rem 0 rgba(0,0,0,0.24), 0 0.5rem 1.5rem 0 rgba(0,0,0,0.12); */
 }
 
 .navbar-brand {
@@ -30,11 +40,13 @@ body {
 .btn-primary {
     background-color: #138d69!important;
     border-color: #138d69!important;
+    text-shadow: 0.12rem 0.25rem 0.5rem rgba(0,0,0,0.24), 0.25rem 0.5rem 1.5rem rgba(0,0,0,0.12);
+    box-shadow: 0 0.25rem 0.5rem 0 rgba(0,0,0,0.24), 0 0.5rem 1.5rem 0 rgba(0,0,0,0.12);
+
 }
 
 .btn-primary:hover {
     background-color: #138d69!important;
-    outline-color: 
 }
 
 .nav-link {
@@ -49,6 +61,7 @@ body {
 
 .nav-link:hover {
     color: rgba(255,255,255,.75)!important;
+    text-shadow: 0.06rem 0.12rem 0.5rem rgba(0,0,0,0.48), 0.25rem 0.5rem 0.75rem rgba(0,0,0,0.72);
 }
 
 .btn-primary.focus
@@ -116,6 +129,18 @@ p.lead {
   line-height: 3.14rem;
   margin-right: 0;
   padding-top: 1rem;
+  box-shadow: 0 0.25rem 0.5rem 0 rgba(0,0,0,0.24), 0 0.5rem 1.5rem 0 rgba(0,0,0,0.12);
+}
+
+.social-icons a {
+  text-shadow: none;
+
+}
+
+#sideNav {
+    box-shadow: 0 0.25rem 0.5rem 0 rgba(0,0,0,0.24), 0 0.5rem 1.5rem 0 rgba(0,0,0,0.12);
+    
+    text-shadow: 0.12rem 0.25rem 0.5rem rgba(0,0,0,0.24), 0.25rem 0.5rem 1.5rem rgba(0,0,0,0.12);
 }
 
 .social-icons a:hover {
@@ -128,6 +153,10 @@ p.lead {
 
 .dev-icons .list-inline-item i:hover {
   color: #138d69;
+}
+
+.dev-icons .list-inline-item i {
+  text-shadow: 0.12rem 0.25rem 0.5rem rgba(0,0,0,0.24), 0.25rem 0.5rem 1.5rem rgba(0,0,0,0.12);
 }
 
 .social-icons a,
@@ -151,7 +180,11 @@ p.lead {
 }
 
 #sideNav .navbar-toggler:focus {
-  outline-color: #52e3b8;
+  outline-color: #d6d9dc;
+}
+
+.detail-image img {
+    border-radius: 0.5em;
 }
 
 @media (min-width: 992px) {

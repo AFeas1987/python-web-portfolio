@@ -8,12 +8,12 @@
 <div class="row">
 {% for project in projects %}
     <div class="card-col col-md-4">
-        <div class="card mb-2 bg-dark text-muted">
+        <div class="card mb-2 p-2 bg-dark text-muted">
             <img class="card-img-top" src="{{ project.image }}">
             <div class="card-body">
                 <h5 class="card-title text-light">{{ project.title }}</h5>
                 <p class="card-text">{{ project.description }}</p>
-                <button type="button" class="btn btn-primary btn-lg mx-1 detail-btn text-light" 
+                <button type="button" class="btn btn-primary mx-1 detail-btn text-light" 
                         data-toggle="modal" data-id="{% url 'project_detail' project.pk %}">More Info</button>
             </div>
         </div>
