@@ -3,7 +3,7 @@
 {% block page_content %}
 
 <div class="modal-header">
-  <h3 class="modal-title text-light">Project details</h3>
+  <h3 class="modal-title text-secondary">Project details</h3>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -11,7 +11,7 @@
 
 <div class="modal-body text-muted">
 
-    <h2 class="text-light">{{ project.title }}</h2>
+    <h2 class="text-secondary">{{ project.title }}</h2>
     <div class="row">
 		<div class="detail-image col-md-8">
 			{% if project.image %}
@@ -19,15 +19,15 @@
 			{% endif %}
 		</div>
         <br>
-        <div class="col-md-4 mt-4 text-muted">
-            <h5 class="text-light">Created:</h5>
+        <div class="col-md-4 mt-4 text-normal">
+            <h5 class="text-secondary">Created:</h5>
             <p>{{ project.display_created }}</p>
             <br>
-            <h5 class="text-light">Technology used:</h5>
+            <h5 class="text-secondary">Technology used:</h5>
             <p>{{ project.technology }}</p>
             <br>
-            <h5 class="text-light">About the project:</h5>
-            <p>{{ project.description }}</p>
+            <h5 class="text-secondary">About the project:</h5>
+            <p>{{ project.description|safe }}</p>
         </div>
     </div>
 
@@ -36,12 +36,12 @@
 <div class="modal-footer w-100">
     <div class="d-flex justify-content-around">
         {% if project.github_link %}
-            <a class="button btn btn-primary mx-1" href="{{ project.github_link }}" target="_blank">View on GitHub</a>
+            <a class="button btn btn-primary mx-1 text-secondary font-header" href="{{ project.github_link }}" target="_blank">View on GitHub</a>
         {% endif %}
         {% if project.codepen_link %}
-            <a class="button btn btn-primary mx-1" href="{{ project.codepen_link }}" target="_blank">Run with CodePen</a>
+            <a class="button btn btn-primary mx-1 text-secondary font-header" href="{{ project.codepen_link }}" target="_blank">Run with CodePen</a>
         {% endif %}
-        <button type="button" class="btn btn-primary mx-1" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary mx-1 text-secondary font-header" data-dismiss="modal">Close</button>
     </div>
 </div>
 

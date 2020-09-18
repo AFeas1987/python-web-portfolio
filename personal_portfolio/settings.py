@@ -21,8 +21,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "!^_6%0so9$a@u-w22nc56xcp0^spoo4k^3q!j016o5hll+#c#o"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = TEMPLATE_DEBUG = True
@@ -41,10 +39,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "bootstrap_modal_forms",
+    "solo",
+    "colorfield",
     # "sass_processor",
     "projects",
-    # "resume",
-    # "blog",
+    "resume",
+    "personal_portfolio",
 ]
 
 MIDDLEWARE = [
@@ -57,7 +57,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    
 ]
 
 ROOT_URLCONF = "personal_portfolio.urls"
@@ -93,12 +92,15 @@ if os.path.isfile(dotenv_file):
             "ENGINE": "django.db.backends.sqlite3",
             "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
         }
-    }
+    }    
 else:
-    DATABASES['default'] = dj_database_url.parse('postgres://pleevhxrkmgnpt:37eaa61b1148fbe771c47272aeebb258a44f4ff8da6abe7bf0ea7cfab04870b2@ec2-23-21-13-88.compute-1.amazonaws.com:5432/d9j311hdotp6lu')
-
-
-
+    # DATABASES['default'] = dj_database_url.parse('postgres://pleevhxrkmgnpt:37eaa61b1148fbe771c47272aeebb258a44f4ff8da6abe7bf0ea7cfab04870b2@ec2-23-21-13-88.compute-1.amazonaws.com:5432/d9j311hdotp6lu')
+    # DATABASES['default'] = dj_database_url.parse(os.environ['DATABASE_URL'])
+    DATABASES['default'] = os.environ['DATABASE_URL']
+    
+# SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY = "!^_6%0so9$a@u-w22nc56xcp0^spoo4k^3q!j016o5hll+#c#o"
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -163,7 +165,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 django_heroku.settings(locals())
 
-# del DATABASES['default']['OPTIONS']['sslmode']
+
+if os.path.isfile(dotenv_file):
+    del DATABASES['default']['OPTIONS']['sslmode']
+
 # Django Sass
 # SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR,'projects/static')
 

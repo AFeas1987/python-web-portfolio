@@ -1,5 +1,8 @@
-{% extends "base.html" %}
+
 {% load static %}
+
+
+
 {% block page_content %}
 <!-- <h1>Projects</h1> -->
 
@@ -8,16 +11,16 @@
 <div class="row">
 {% for project in projects %}
     <div class="card-col col-md-4">
-        <div class="card mb-2 p-2 bg-dark text-muted">
+        <div class="card mb-2 p-2 bg-dark text-normal">
             <div class="card-img-div">
 			{% if project.image %}
                 <img class="card-img-top" src="{{ project.image }}">
 			{% endif %}
             </div>
             <div class="card-body">
-                <h5 class="card-title text-light">{{ project.title }}</h5>
+                <h5 class="card-title text-secondary">{{ project.title }}</h5>
                 <p class="card-text">{{ project.description }}</p>
-                <button type="button" class="btn btn-primary mx-1 detail-btn text-light" 
+                <button type="button" class="btn btn-primary mx-1 detail-btn font-header text-secondary" 
                         data-toggle="modal" data-id="{% url 'project_detail' project.pk %}">More Info</button>
             </div>
         </div>

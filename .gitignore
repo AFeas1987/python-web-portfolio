@@ -6,3 +6,5 @@ venv/
 datadump.json
 staticfiles/
 .env
+start_venv.bat
+stop_venv.bat

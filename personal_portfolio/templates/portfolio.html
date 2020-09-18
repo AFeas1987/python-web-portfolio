@@ -1,0 +1,244 @@
+{% load static %}
+{% load solo_tags %}
+
+<!-- <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no" /> -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+<link href="{% static 'projects/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<title>{{ about.site_title }}</title>
+<link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+<link href="{% static 'projects/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+
+<style>
+    :root {
+        --background-color: {{ about.background_color }};
+        --background-secondary-color: {{ about.background_secondary_color }};
+        --primary-color: {{ about.primary_color }};
+        --secondary-color: {{ about.secondary_color }};
+        --text-color: {{ about.text_color }};
+    }
+</style>
+
+<!-- Custom styles for this template -->
+<link href="{% static 'projects/css/resume.css' %}" rel="stylesheet">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none text-secondary">{{ about.site_display_name }}</span>
+        <!-- <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+      </span> -->
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse mt-2" id="navbarSupportedContent">
+        <ul class="navbar-nav text-secondary">
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+            {% if experience %}
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
+            {% endif %}
+            {% if education %}
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
+            {% endif %}
+            {% if skills %}
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
+            {% endif %}
+            {% if interests.show_section and interests.description %}
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
+            {% endif %}
+            {% if awards %}
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Awards</a></li>
+            {% endif %}
+            {% if projects %}
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Projects</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+<body class="text-normal" id="page-top">
+
+    <div class="container-fluid p-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+            <div class="w-100">
+                <h1 class="mb-0 text-secondary">{{ about.first_name }} <span class="text-primary">{{ about.last_name }}</span></h1>
+                <div class="subheading mb-5">
+                    <a class="email-link" href="mailto:{{ about.email }}">{{ about.email }}</a>
+                    {% if about.location %}
+                        · {{ about.location }}
+                    {% endif %}
+                    {% if about.phone %}
+                        · {{ about.phone }}
+                    {% endif %}
+                </div>
+                <p class="lead mb-5">
+                    {% if about.description %}
+                        {{ about.description|safe }}
+                    {% endif %}
+                </p>
+                <div class="social-icons text-center">
+                    {% for social_icon in social_icons %}
+                    <a class="social-icon" href="{{ social_icon.link }}" target="_blank">
+                        <i class="fab fab-about {{ social_icon.fa_icon }} text-secondary"></i>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        {% if experience %}
+        <hr class="m-0">
+        <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
+            <div class="w-100">
+                <h2 class="mb-5 text-secondary">Experience</h2>
+                {% for exp in experience %}
+                <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="resume-content">
+                        <h3 class="mb-0 text-secondary font-header">{{ exp.title }}</h3>
+                        <div class="subheading mb-3">{{ exp.company }}</div>
+                        <p>{{ exp.description|safe }}</p>
+                    </div>
+                    <div class="resume-date text-md-right">
+                        <span class="text-primary">{{ exp.start_month }} - {{ exp.end_month }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        {% if education %}
+        <hr class="m-0">
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
+            <div class="w-100">
+                <h2 class="mb-5 text-secondary">Education</h2>
+                {% for edu in education %}
+                <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="resume-content">
+                        <h3 class="mb-0 text-secondary font-header">{{ edu.school }}</h3>
+                        <div class="subheading mb-3">{{ edu.degree }}</div>
+                        <p>{{ edu.description|safe }}</p>
+                        <p>GPA:&nbsp;&nbsp;{{ edu.gpa }}</p>
+                    </div>
+                    <div class="resume-date text-md-right"><span class="text-primary">{{ edu.start_month }} - {{ edu.end_month }}</span></div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        {% if skills %}
+        <hr class="m-0">
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
+            <div class="w-100">
+                <h2 class="mb-5 text-secondary">Skills</h2>
+                {% regroup skills by category as categories %}
+                {% for category in categories %}
+                <h3 class="mb-3 text-secondary">{{ category.grouper }}</h3>
+                {% regroup category.list by type as types %}
+                {% for type in types %}
+                {% if type.grouper == 1 %}
+                <div class="container-fluid px-0 skill-icon-container">
+                    {% for skill in type.list %}
+                            <i class="fab {{ skill.fa_icon }} skill-icon" title="{{ skill.name }}"></i>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% if type.grouper == 2 %}
+                <div class="container-fluid px-0 skill-text-container">
+                    {% for skill in type.list %}
+                    <div class='d-inline-block w-auto h-auto m-0 skill-text align-middle font-header' title="{{ skill.name }}">{{ skill.name }}</div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% if type.grouper == 3 %}
+                <div class="mb-0 px-0 container-fluid skill-list-container">
+                    <div class="row">
+                    {% for skill in type.list %}
+                        <div class="skill-list-item col">
+                            <i class="fa fa-check"></i>
+                            <span>{{ skill.name }}</span>
+                        </div>
+                        {% cycle '' '<div class="w-100"></div>'|safe %}
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        {% if interests.show_section and interests.description %}
+        <hr class="m-0">
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="interests">
+            <div class="w-100">
+                <h2 class="mb-5 text-secondary">Interests</h2>
+                <p>{{ interests.description|safe }}</p>
+            </div>
+        </section>
+        {% endif %}
+
+        {% if awards %}
+        <hr class="m-0">
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="awards">
+        <div class="w-100">
+            <h2 class="mb-5 text-secondary">Awards &amp; Certifications</h2>
+            <div class="mb-0 align-items-center mr-2">
+                {% for award in awards %}
+                <div class="row award mb-2 align-items-center">
+                    <i class="col-1 fa fa-trophy fa-fw text-warning"></i>
+                    <div class="col container-fluid pl-5">
+                        {% if award.url %}
+                            <a class="row text-normal font-header" href="{{ award.url }}" target="blank">{{ award.title }}</a>
+                        {% else %}
+                            <span class="row font-header">{{ award.title }}</span>
+                        {% endif %}
+                            <span class="row ml-4">- {{ award.organization }}</span>
+                    </div>
+                    <div class="col-3 text-primary text-right">{{ award.month }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        </section>
+        {% endif %}
+
+        {% if projects %}
+        <hr class="m-0">
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="projects">
+            <div class="w-100">
+                <h2 class="mb-5 text-secondary">Projects</h2>
+                {% include "project_index.html" %}
+            </div>
+        </section>
+        {% endif %}
+
+    </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content bg-dark"></div>
+        </div>
+    </div>
+
+</body>
+
+<!-- Bootstrap core JavaScript -->
+<script src="{% static 'projects/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'projects/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'projects/vendor/jquery.bootstrap.modal.forms/jquery.bootstrap.modal.forms.min.js' %}"></script>
+
+<!-- Plugin JavaScript -->
+<script src="{% static 'projects/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+<!-- Custom scripts for this template -->
+<script src="{% static 'projects/js/resume.js' %}"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->

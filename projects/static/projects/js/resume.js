@@ -25,4 +25,13 @@
     target: '#sideNav'
   });
 
+  $('.social-icon').hover(
+      () => {
+        $('.social-icon').not(this).not($(this).nextAll()).addClass('before');
+      },
+      () => {
+        $('.social-icon').not(this).not($(this).nextAll()).removeClass('before');
+      }  
+  )
+
 })(jQuery); // End of use strict

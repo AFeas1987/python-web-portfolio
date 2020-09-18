@@ -1,7 +1,6 @@
 import datetime, calendar
 from django.db import models
-from django.utils import timezone
-
+from django.utils import timezone, safestring
 
 class Project(models.Model):
     title = models.CharField(max_length=200)
@@ -24,3 +23,8 @@ class Project(models.Model):
     was_published_recently.boolean = True
     was_published_recently.short_description = 'Published recently'
     display_created.short_description = 'Date created'
+    def image_preview(self):
+        return '<img src="{0}" width="150" height="150" style="object-fit:contain" />'.format(self.image.url) if self.image else '(No image)'
+    image_preview.short_description = 'Preview'
+    class Meta:
+        ordering = ['-created']
