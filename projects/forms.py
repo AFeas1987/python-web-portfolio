@@ -3,6 +3,6 @@ from bootstrap_modal_forms.forms import BSModalForm
 
 
 class ProjectForm(BSModalForm):
-    class Meta:
-        model = Project
-        # exclude = ['timestamp']
+	class Meta:
+		model = Project
+		# exclude = ['timestamp']

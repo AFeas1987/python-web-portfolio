@@ -89,10 +89,10 @@ if os.path.isfile(dotenv_file):
 			"ENGINE": "django.db.backends.sqlite3",
 			"NAME": os.path.join(BASE_DIR, "db.sqlite3"),
 		}
-	}    
+	}
 else:
 	DATABASES['default'] = os.environ['DATABASE_URL']
-	
+
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # Password validation
