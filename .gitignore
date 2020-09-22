@@ -8,3 +8,4 @@ staticfiles/
 .env
 start_venv.bat
 stop_venv.bat
+resume/migrations/__pycache__/
